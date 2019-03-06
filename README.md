@@ -1,1 +1,5 @@
 # cpp-threads
+
+```
+make
+```
