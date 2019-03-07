@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <mutex>
 #include <thread>
@@ -17,12 +16,19 @@ struct Foo {
     }
 };
 
+void nonMemberFunction(int n) {
+    print("nonMemberFunction: " + to_string(n) + " was passed.");
+}
+
 int main() {
     cout << "Enter main." << endl;
 
     Foo foo;
     thread t(foo);
     t.join();
+
+    thread t2(nonMemberFunction, 666);
+    t2.join();
 
     cout << "Exit main." << endl;
     return 0;
